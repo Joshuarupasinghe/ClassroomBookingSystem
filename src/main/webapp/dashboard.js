@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch('/ClassRoomBookingSystem/api/bookings', {
+            const response = await fetch('/api/bookings', {
                 method: bookingId ? 'PUT' : 'POST', // Dynamic HTTP method
                 headers: {
                     'Content-Type': 'application/json',
