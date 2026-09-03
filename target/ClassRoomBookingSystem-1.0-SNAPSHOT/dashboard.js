@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.event-card').forEach(card => card.remove());
 
         try {
-            const response = await fetch(`/ClassRoomBookingSystem/api/bookings?date=${date}`);
+            const response = await fetch(`/api/bookings?date=${date}`);
             if (response.ok) {
                 const bookings = await response.json();
                 bookings.forEach(renderBookingCard);
