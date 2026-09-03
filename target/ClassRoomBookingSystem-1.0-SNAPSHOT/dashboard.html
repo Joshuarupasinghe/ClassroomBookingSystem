@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Classroom Booking System - Matrix</title>
+        <link rel="stylesheet" href="dashboard.css">
+    </head>
+    <body>
+        <header class="top-bar">
+            <h1>Schedule Matrix</h1>
+            <div class="user-controls">
+                <span id="userInfo"></span>
+                <button id="logoutBtn" class="outline-btn">Logout</button>
+            </div>
+        </header>
+
+        <main class="matrix-container">
+            <div class="matrix-controls">
+                <input type="date" id="scheduleDate" class="light-input">
+                <button id="openBookingModalBtn" class="primary-btn hidden">+ New Booking</button>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="scheduleTable">
+                    <thead>
+                        <tr id="tableHeader">
+                            <th>Time / Room</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <div id="bookingModal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="modalTitle">Schedule Classroom</h2>
+                <form id="bookingForm">
+                    <!-- Hidden field to track if we are editing an existing booking -->
+                    <input type="hidden" id="bookingId">
+
+                    <div class="input-group">
+                        <label>Room</label>
+                        <select id="roomSelect" required class="light-input"></select>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <div class="input-group" style="flex: 1;">
+                            <label>Start Time</label>
+                            <input type="time" id="startTime" required class="light-input" min="08:00" max="20:00">
+                        </div>
+                        <div class="input-group" style="flex: 1;">
+                            <label>End Time</label>
+                            <input type="time" id="endTime" required class="light-input" min="08:00" max="20:00">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Module Code</label>
+                        <input type="text" id="moduleCode" required class="light-input">
+                    </div>
+                    <div class="input-group">
+                        <label>Lecturer Name</label>
+                        <input type="text" id="lecturerName" required class="light-input">
+                    </div>
+                    <div id="modalError" class="error-message"></div>
+                    <div class="modal-actions">
+                        <button type="button" id="deleteBookingBtn" class="outline-btn danger-btn hidden">Delete</button>
+                        <button type="button" id="closeModalBtn" class="outline-btn">Cancel</button>
+                        <button type="submit" id="submitBookingBtn" class="primary-btn">Confirm Booking</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="dashboard.js"></script>
+    </body>
+</html>
